@@ -1,0 +1,14 @@
+{
+  "name": "phptravels",
+  "version": "1.0.0",
+  "description": "Test cases for PhpTravels page",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "author": "Robert Pecz",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^2.1.0"
+  }
+}
