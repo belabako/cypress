@@ -43,5 +43,33 @@ describe('Login test functionality (positive) of the Phptravels page', function 
             cy.get('.mob-trip-info-head > div')
                 .should('contain', dateCaller);
         });
+        it('TS005, Search Hotels empty location', function () {
+            // Modify the today date, adding one month to it
+            var d = new Date();
+            var caller = require('C:\\Users\\robert.pecz\\Documents\\CypressProjects\\PhpTravels\\cypress\\SupportJs\\DateModifier');
+            var dateCaller = caller.ModifyDate(1, d);
+            // Clearing the date field and type the modified date into the Check in datefield
+            cy.get('#dpd1 > .form')
+                .clear()
+                .type(dateCaller)
+                .click();
+            // Modify the today date, adding two month to it
+            dateCaller = caller.ModifyDate(2, d);
+            // Clearing the date field and type the modified date into the Check out datefield
+            cy.get('#dpd2 > .form')
+                .clear()
+                .type(dateCaller)
+                .click();
+            // Click on the search button
+            cy.get(':nth-child(3) > .col-md-12 > .btn-danger')
+                .click();
+            // Assert that the first result location text shouldn't equal the second result location text
+            cy.get(':nth-child(1) > .wow > .col-md-8 > :nth-child(1) > .ellipsisFIX').then(($firstElement) => {
+                const firstElementText = $firstElement.text();
+                cy.get(':nth-child(2) > .wow > .col-md-8 > :nth-child(1) > .ellipsisFIX').should(($secondElement) => {
+                    expect($secondElement.text()).not.to.eq(firstElementText);
+                });
+            });
+        });
     });
 });
