@@ -1,9 +1,9 @@
-describe('Login test functionality (positive) of the Phptravels page', function () {
+describe('Search hotels functionality test (positive) of the Phptravels page', function () {
     beforeEach(function () {
         cy.viewport(1920, 1080);
         cy.visit('https://www.phptravels.net/');
     });
-    context('Sign Up function positive scenario', function () {
+    context('Search hotels positive scenario', function () {
         it('TS004, Search Hotels all valid data', function () {
             // Click on the location textbox
             cy.get('#s2id_autogen10 > .select2-choice > .select2-chosen')
