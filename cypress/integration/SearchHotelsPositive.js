@@ -65,7 +65,7 @@ describe('Search hotels functionality test (positive) of the Phptravels page', f
                 .click();
             // Assert that the first result location text shouldn't equal the second result location text
             cy.get(':nth-child(1) > .wow > .col-md-8 > :nth-child(1) > .ellipsisFIX').then(($firstElement) => {
-                const firstElementText = $firstElement.text();
+                const firstElementText = $firstElement.text();              
                 cy.get(':nth-child(2) > .wow > .col-md-8 > :nth-child(1) > .ellipsisFIX').should(($secondElement) => {
                     expect($secondElement.text()).not.to.eq(firstElementText);
                 });
