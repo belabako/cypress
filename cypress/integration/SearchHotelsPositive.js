@@ -5,8 +5,10 @@ describe('Search hotels functionality test (positive) of the Phptravels page', f
     });
     context('Search hotels positive scenario', function () {
         it('TS004, Search Hotels all valid data', function () {
+            // Getting the precondition steps from a support js file and put the date into a var variable
             var searchWrapperTS004 = require('C:\\Users\\robert.pecz\\Documents\\CypressProjects\\PhpTravels\\cypress\\SupportJs\\PreSearchHotels');
             var dateReceiver = searchWrapperTS004.PreconditionHotels('Dubai');           
+            // Assert that the url containing the Dubai word
             cy.url()
                 .should('contain', 'Dubai');
             // Assert that the top blue ribbon containing the Dubai word
