@@ -136,5 +136,24 @@ describe('Summary Invoice functionality test (positive) of the Phptravels page',
             cy.get('[style="font-size: 34px;text-transform:uppercase;font-weight: bold;"]', { timeout: 10000 })
                 .should('text', 'Invoice');
         });
+        it('TS006, arrival', function () {
+            // Getting the precondition steps from a support js file and put the date into a var variable
+            var searchWrapperTS001 = require('C:\\Users\\robert.pecz\\Documents\\CypressProjects\\PhpTravels\\cypress\\SupportJs\\PreSearchHotels');
+            var dateReceiver = searchWrapperTS001.PreconditionHotels('Dubai');
+            // Getting the redundant steps for invoice and executing
+            var invoiceWrapperTS001 = require('C:\\Users\\robert.pecz\\Documents\\CypressProjects\\PhpTravels\\cypress\\SupportJs\\PreSummaryInvoices');
+            invoiceWrapperTS001.PreConditionSummaryInvoice();
+            // Click on the confrim booking button
+            cy.get(':nth-child(7) > .btn')
+                .scrollIntoView()
+                .click();
+            // Assert that the user is on the invoice page
+            cy.get('[style="font-size: 34px;text-transform:uppercase;font-weight: bold;"]', { timeout: 10000 })
+                .should('text', 'Invoice');
+            cy.contains('Pay on Arrival')
+                .click()
+            cy.get('td > div > .wow')
+                .should('contain', 'Reserved');            
+        });
     });
 });
