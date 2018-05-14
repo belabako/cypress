@@ -9,10 +9,7 @@ describe('Search flights functionality test (positive) of the Phptravels page', 
                 .click()
                 .url()
                 .should('eq', 'https://www.phptravels.net/flightst');
-            cy.get('#travelstartIframe-dd7d2f33-38c3-4c69-baac-56d16157023b')
-                  
-                
-
+            cy.get('#travelstartIframe-dd7d2f33-38c3-4c69-baac-56d16157023b')                                       
         });
     });
 });
