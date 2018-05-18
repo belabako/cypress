@@ -18,7 +18,7 @@ describe('Forget password functionality', function () {
                 .type('robert.pecz@accenture.com');
             // Type the password into the password field
             cy.get('.panel-body > :nth-child(2) > .form-control')
-                .type('2cjGaOS5');
+                .type('pGO485Wk');
             // Click on the Log in button
             cy.get('.wow > .btn')
                 .click();

@@ -5,7 +5,7 @@ describe('Search flights functionality test (positive) of the Phptravels page', 
     });
     context('Search flights positive scan', function () {
         it('TS008, Search flights all valid data', function () {
-            cy.get('.nav > :nth-child(2) > a')
+            cy.get('.col-md-5 > :nth-child(1) > .nav > :nth-child(3) > a')
                 .click()
                 .url()
                 .should('eq', 'https://www.phptravels.net/flightst');
